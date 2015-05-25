@@ -1,0 +1,142 @@
+
+#forum {
+	padding-bottom: 4rem;
+	#forum_posts {
+		width: 72%;
+		margin-right: 5%;
+		float: left;
+		nav {
+		  padding-bottom: 1rem;
+		  border-bottom: 1px solid #E9E9E9;
+			ul {
+				list-style: none;
+				padding-left: 0;
+				margin: 0;
+				li {
+					margin-right: 1.5rem;
+	        display: inline;
+	        a {
+	        	text-decoration: none;
+	        	color: $text;
+	        	&:hover {
+	        		color: $highlight;
+	        	}
+	        }
+	        .active {
+	        	color: $highlight;
+	        }
+				}
+			}
+	  }
+	  .forum_post {
+	  	padding: 2rem 0;
+	  	border-bottom: 1px solid #E9E9E9;
+	  	&:nth-child(11) {
+	  		margin-bottom: 4rem;
+	  	}
+	  	.user_image {
+	  		width: 6.5%;
+	  		float: left;
+	  		img {
+	  			width: 40px;
+	  			height: 40px;
+	  			border-radius: 50%;
+	  		}
+	  	}
+	  	.post_content {
+	  		width: 83.5%;
+	  		float: left;
+	  		h2 {
+	  			margin: 0;
+	  			a {
+	  				text-decoration: none;
+	  				font-size: 1.25rem;
+	  				font-weight: 400;
+	  				color: $highlight;
+	  			}
+	  		}
+	  		.post_meta {
+	  			margin: 0 0 1.2rem;
+	  			font-size: .9rem;
+	  			font-weight: 300;
+	  			span {
+	  				font-size: 1rem;
+	  				font-weight: 400;
+	  			}
+	  		}
+	  		.post_category {
+	  			text-decoration: none;
+	  			color: $text;
+	  			border: 2px solid lighten($text, 25%);
+	  			border-radius: 2rem;
+	  			padding: .3rem .8rem;
+	  			display: inline-block;
+	  			transition: color .4s ease-in-out, border-color .4s ease-in-out;
+	  			&:hover {
+	  				color: $highlight;
+	  				border-color: $highlight;
+	  			}
+	  		}
+	  	}
+	  	.post_reply_count {
+	  		width: 10%;
+	  		float: left;
+	  		.reply_count {
+	  			margin: .2rem 0 0;
+	  			text-align: center;
+	  			font-size: 1.5rem;
+	  			color: $dark;
+	  			span {
+	  				display: block;
+	  				margin-top: -.1rem;
+	  				font-size: .9rem;
+	  				font-weight: 300;
+	  				color: $text;
+	  			}
+	  		}
+	  	}
+	  }
+	}
+	#forum_sidebar {
+		width: 23%;
+		float: left;
+		.category_dropdown {
+			text-decoration: none;
+			color: $text;
+			padding: 1.5rem 0 .7rem;
+			position: relative;
+		  display: block;
+		  border-bottom: 1px solid #E9E9E9;
+		  span {
+		  	position: absolute;
+			  font-size: .85rem;
+			  top: 28px;
+			  right: 0;
+		  }
+		}
+		nav {
+			ul {
+				margin: 0;
+				padding-left: 0;
+	      list-style: none;
+	      li {
+	      	padding: .7rem 0;
+	      	border-bottom: 1px solid #E9E9E9;
+	      	&:last-child {
+	      		border-bottom: 0;
+	      	}
+	      	a {
+	      		text-decoration: none;
+	      		color: $text;
+	      		&:hover {
+	      			color: $highlight;
+	      		}
+	      	}
+	      	.active {
+      			color: $highlight;
+      		}
+	      }
+			}
+		}
+	}
+}

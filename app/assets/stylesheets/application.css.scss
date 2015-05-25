@@ -1,0 +1,260 @@
+$white: #FFFFFF;
+$highlight: #478AFA;
+$dark: #1E2E48;
+$light: #EDEFF0;
+$text: #8C989E;
+
+.wrapper_wide, .wrapper, .wrapper_skinny {
+	margin: 0 auto;
+}
+
+.wrapper_wide {
+  width: 90%;
+  max-width: 1440px;
+}
+
+.wrapper {
+	width: 80%;
+	max-width: 1152px;
+}
+
+.wrapper_skinny {
+	width: 50%;
+	max-width: 864px;
+}
+
+.cf:before, .cf:after {
+	content: " ";
+	display: table;
+}
+
+.cf:after {
+	clear: both;
+}
+
+.button {
+	color: $white;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1rem;
+	padding: 1rem 2rem;
+	border-radius: 2rem;
+	outline: none;
+	border: none;
+	display: inline-block;
+	min-width: 8.5rem;
+}
+
+.button_highlight {
+	background: $highlight;
+	transition: background .4s ease-in-out;
+	&:hover {
+		background: darken($highlight, 7.5%);
+	}
+}
+
+.button_white {
+	background: $white;
+	color: $dark;
+	transition: background .4s ease-in-out;
+	&:hover {
+		background: darken($white, 7.5%);
+	}
+}
+
+.button_outline {
+	background: transparent;
+	color: $white;
+	border: 3px solid $white;
+	transition: all .4s ease-in-out;
+	&:hover {
+		border: 3px solid $highlight;
+		color: $highlight;
+	}
+}
+
+.button_block {
+	display: block;
+}
+
+#main_header {
+	background: $dark;
+	padding: 2rem 0;
+	#logo {
+		float: left;
+		text-transform: uppercase;
+		font-weight: 400;
+		letter-spacing: 5px;
+		color: $white;
+		text-decoration: none;
+	}
+	nav {
+		float: right;
+		ul {
+			list-style: none;
+			margin: 0;
+			li {
+				display: inline;
+				margin-left: 2.5rem;
+				a {
+					color: $white;
+					text-decoration: none;
+					font-size: .9rem;
+					letter-spacing: 1px;
+					transition: color .4s ease-in-out;
+					&:hover {
+						color: $highlight;
+					}
+				}
+				.active {
+					color: $highlight;
+				}
+			}
+		}
+	}
+}
+
+#banner {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top center;
+	margin-bottom: 4rem;
+	h1 {
+		text-align: center;
+		color: $white;
+		font-size: 2.5rem;
+		font-weight: 300;
+		letter-spacing: 1px;
+		margin: 0;
+		padding: 4rem 0;
+	}
+}
+
+.discussions_banner {
+	background-image: image-url("background.jpg");
+}
+
+.videos_banner {
+	background-image: image-url("background.jpg");
+}
+
+.programs_banner {
+	background-image: image-url("background.jpg");
+}
+
+.sign_in_banner {
+	background-image: image-url("background.jpg");
+	h1 {
+		padding: 5.6rem 0!important;
+	}
+}
+
+.sign_up_banner {
+	background-image: image-url("background.jpg");
+	h1 {
+		padding: 5.6rem 0!important;
+	}
+}
+
+img {
+	max-width: 100%;
+}
+
+.pagination {
+	text-align: center;
+	margin: 0;
+	a, .previous_page, .current, .next_page {
+		display: inline-block;
+		padding: .5rem .7rem;
+		margin: 0 .15rem;
+		border-radius: .25rem;
+		line-height: 1.25rem;
+		text-decoration: none;
+		background: $light;
+		font-weight: 700;
+		font-size: .7rem;
+		font-style: normal;
+		letter-spacing: 1px;
+		color: $dark;
+		transition: background .4s ease-in-out, color .4s ease-in-out;
+		&:hover {
+			background: $highlight;
+		  color: $white;
+		}
+	}
+	.current {
+		background: $highlight;
+		color: $white;
+	}
+	.disabled {
+		color: #C0C0C0;
+		&:hover {
+			background: $light;
+			color: #C0C0C0;
+		}
+	}
+}
+
+#form {
+  padding-bottom: 4rem;
+}
+
+.field {
+	margin: .5rem 0 1.5rem;
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea {
+  width: 100%;
+  height: 2.6rem;
+  padding: .5rem 1rem;
+  margin-top: .5rem;
+  background: $light;
+  box-sizing: border-box;
+  border: 1px solid darken($light, 5%);
+  border-radius: .35rem;
+  outline: none;
+  font-weight: 300 !important;
+}
+
+textarea {
+	min-height: 12.5rem;
+	margin-top: .5rem !important;
+	resize: vertical;
+}
+
+.authorised_links {
+	margin-top: 2rem;
+	a {
+		float: left;
+		font-size: .9rem;
+		text-decoration: none;
+		color: lighten($text, 20%);
+		transition: color .2s ease-in-out;
+		&:hover {
+			color: $text;
+		}
+	}
+	.delete_link {
+		margin-left: 1rem;
+		&:before {
+			content: "|";
+			padding-right: 1rem;
+			color: lighten($text, 20%); 
+		}
+	}
+}
+
+@import 'normalize';
+@import 'fonts';
+@import 'icons';
+@import 'welcome';
+@import 'discussions';
+@import 'discussions_show';
+@import 'videos';
+@import 'videos_show';
+@import 'comments';
+
+body {
+	font-family: 'Nunito', sans-serif;
+	color: $text;
+}

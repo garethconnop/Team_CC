@@ -1,0 +1,100 @@
+#videos {
+	padding-bottom: 4rem;
+	.video_wrapper {
+		width: 90%;
+		max-width: 1152px;
+		margin: 0 auto;
+		nav {
+			margin-bottom: 2rem;
+		  padding-bottom: 1rem;
+		  border-bottom: 1px solid #E9E9E9;
+			ul {
+				list-style: none;
+				padding-left: 0;
+				margin: 0;
+				li {
+					margin-right: 1.5rem;
+	        display: inline;
+	        a {
+	        	text-decoration: none;
+	        	color: $text;
+	        	&:hover {
+	        		color: $highlight;
+	        	}
+	        }
+	        .active {
+	        	color: $highlight;
+	        }
+				}
+			}
+	  }
+	  .video_row {
+			.video {
+				position: relative;
+				width: 31.111111111111%;
+				float: left;
+				margin: 0 3.333333333333% 4rem 0;
+	      .video_thumb {
+	      	width: 100%;
+			  	position: relative;
+			  	background-size: 100%;
+			  	background-repeat: no-repeat;
+			  	background-position: center center;
+			  	border-radius: .35rem;
+	        .tint {
+	        	padding-top: 56.25%; /* 4:3 aspect ratio */
+	        	background: rgba(30,46,72, 0.3);
+	        	border-radius: .35rem;
+	          .title_wrapper {
+	          	position: absolute;
+	          	top: 0;
+	          	bottom: 0;
+	            padding: 5%;
+	            width: 90%;
+					  	h2, p {
+					  		position: absolute;
+					  		margin: 0;
+					  		color: $white;
+					  		font-weight: 300;
+					  	}
+					  	h2 {
+					  		bottom: 2.2rem;
+					  		width: 90%;
+				  		  white-space: nowrap;
+							  overflow: hidden;
+							  text-overflow: ellipsis;
+					  	}
+					  	p {
+					  		bottom: 1rem;
+					  		font-size: .8rem;
+					  		color: rgba(255,255,255,.7);
+					  	}
+	          }
+	        }
+	      }
+	      &:last-child {
+			    margin-right: 0;
+			  }
+			  .category {
+			  	position: absolute;
+			  	top: 1rem;
+			  	left: 5%;
+			  	color: $highlight;
+			  	text-decoration: none;
+			  	background: $white;
+				  padding: 0.5rem 0.6rem;
+				  font-size: .8rem;
+				  letter-spacing: 1px;
+				  border-radius: 2rem;
+			  }
+			  .date {
+			  	color: $dark;
+			  }
+			  .description {
+			  	font-weight: 300;
+			  	margin-bottom: 0;
+			  }
+			}
+		}
+	}
+}

@@ -1,6 +1,7 @@
 class VideosController < ApplicationController
 	before_action :find_video, only: [:show, :edit, :update, :destroy]
 	def index
+		@videos = Video.all.order("created_at desc").paginate(page: params[:page], per_page: 12)
 	end
 
 	def new
@@ -39,7 +40,7 @@ class VideosController < ApplicationController
 	private
 
 	def video_params
-		params.require(:video).permit(:title, :length, :description, :video_id)
+		params.require(:video).permit(:title, :length, :description, :video_id, :image)
 	end
 
 	def find_video

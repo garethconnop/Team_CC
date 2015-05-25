@@ -1,1 +1,45 @@
-<h1>Yo!</h1>
+<div id="banner" class="videos_banner">
+  <div class="wrapper_skinny">
+	  <h1>A collection of videos covering exercise and mobility</h1>
+	</div>
+</div>
+
+<div id="videos">
+	<div class="video_wrapper">
+		<nav>
+			<ul>
+				<li><a class="active" href="#">All Videos</a></li>
+				<li><a href="#">Push</a></li>
+				<li><a href="#">Pull</a></li>
+				<li><a href="#">Legs</a></li>
+				<li><a href="#">Core</a></li>
+				<li><a href="#">Mobility</a></li>
+			</ul>
+		</nav>
+
+    <% @videos.each_slice(3) do |videos| %>
+      <div class="video_row cf">
+        <% videos.each do |video| %>
+          <div class="video">
+				    <%= link_to video_path(video) do %>
+	            <div class="video_thumb" style="background-image: url(<%= video.image(:large) %>);">
+			          <div class="tint">
+			            <div class="title_wrapper">
+			              <h2><%= video.title %></h2>
+			              <p class="length"><%= video.length %></p>
+			            </div>
+			          </div>
+			        </div>
+			      <% end %>
+			      <a class="category" href="#">Push</a>
+			      <p class="date"><%= video.created_at.strftime('%e %b %Y') %></p>
+			      <p class="description"><%= truncate(video.description, length: 110) %></p>
+		      </div>
+		  	<% end %>
+		  </div>
+		<% end %>
+
+		<%= will_paginate @videos, previous_label: "Prev", next_label: "Next", inner_window: 1, outer_window: 0 %>
+
+	</div>
+</div>
