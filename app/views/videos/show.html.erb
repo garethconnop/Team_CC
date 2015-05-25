@@ -11,10 +11,7 @@
   			<p id="description"><%= @video.description %></p>
   			<a id="category" href="#">Exercise</a>
   			<hr>
-  			<%= link_to videos_path, class: "button button_highlight" do %>
-  			  <span class="icon-arrow-left2"></span>
-  			  Back to videos
-  			<% end %>
+  			<%= link_to "Back to Videos", videos_path, class: "button button_highlight" %>
   		</div>
   	</div>
 	</div>
