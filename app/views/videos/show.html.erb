@@ -9,7 +9,7 @@
   		<div id="video_content">
   			<h1><%= @video.title %></h1>
   			<p id="description"><%= @video.description %></p>
-  			<a id="category" href="#">Exercise</a>
+        <%= link_to @video.video_category.name, videos_path(video_category: @video.video_category.name), id: "category" %>
   			<hr>
   			<%= link_to "Back to Videos", videos_path, class: "button button_highlight" %>
   		</div>

@@ -8,12 +8,10 @@
 	<div class="video_wrapper">
 		<nav>
 			<ul>
-				<li><a class="active" href="#">All Videos</a></li>
-				<li><a href="#">Push</a></li>
-				<li><a href="#">Pull</a></li>
-				<li><a href="#">Legs</a></li>
-				<li><a href="#">Core</a></li>
-				<li><a href="#">Mobility</a></li>
+			  <li><%= link_to "All Videos", videos_path, class: "active" %></li>
+			  <%- VideoCategory.all.each do |video_category| %>
+			    <li><%= link_to video_category.name, videos_path(video_category: video_category.name) %></li>
+			  <% end %>
 			</ul>
 		</nav>
 
@@ -31,7 +29,7 @@
 			          </div>
 			        </div>
 			      <% end %>
-			      <a class="category" href="#">Push</a>
+			      <%= link_to video.video_category.name, videos_path(video_category: video.video_category.name), class: "category" %>
 			      <p class="date"><%= video.created_at.strftime('%e %b %Y') %></p>
 			      <p class="description"><%= truncate(video.description, length: 110) %></p>
 		      </div>

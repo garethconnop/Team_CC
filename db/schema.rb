@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150525202512) do
+ActiveRecord::Schema.define(version: 20150528191216) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -26,6 +32,12 @@ ActiveRecord::Schema.define(version: 20150525202512) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
+  create_table "video_categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "videos", force: :cascade do |t|
     t.string   "title"
     t.string   "length"
@@ -38,8 +50,11 @@ ActiveRecord::Schema.define(version: 20150525202512) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "slug"
+    t.integer  "category_id"
+    t.string   "video_category_id"
   end
 
   add_index "videos", ["slug"], name: "index_videos_on_slug", unique: true
+  add_index "videos", ["video_category_id"], name: "index_videos_on_video_category_id"
 
 end

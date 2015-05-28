@@ -1,7 +1,12 @@
 class VideosController < ApplicationController
 	before_action :find_video, only: [:show, :edit, :update, :destroy]
 	def index
-		@videos = Video.all.order("created_at desc").paginate(page: params[:page], per_page: 12)
+		if params[:video_category].blank?
+			@videos = Video.all.order("created_at desc").paginate(page: params[:page], per_page: 12)
+		else
+			@category_id = VideoCategory.find_by(name: params[:video_category]).id
+			@videos = Video.where(video_category: @category_id).order("created_at desc").paginate(page: params[:page], per_page: 12)
+		end
 	end
 
 	def new
@@ -40,7 +45,7 @@ class VideosController < ApplicationController
 	private
 
 	def video_params
-		params.require(:video).permit(:title, :length, :description, :video_id, :image, :slug)
+		params.require(:video).permit(:title, :length, :description, :video_id, :image, :slug, :video_category_id)
 	end
 
 	def find_video
