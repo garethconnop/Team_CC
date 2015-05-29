@@ -22,7 +22,7 @@
           </div>
           <div class="post_content">
             <h2><%= link_to forum.title, forum %></h2>
-            <p class="post_meta"><span>Gareth </span><%= time_ago_in_words(forum.created_at) %> ago</p>
+            <p class="post_meta"><span><%= forum.user.email %> </span><%= time_ago_in_words(forum.created_at) %> ago</p>
             <a class="post_category" href="#">Exercise</a>
           </div>
           <div class="post_reply_count">

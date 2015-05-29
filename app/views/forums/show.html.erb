@@ -10,7 +10,7 @@
     	</div>
     	<div class="post_content">
         <h2><%= @forum.title %></h2>
-      	<p class="post_meta"><span>Gareth </span><%= time_ago_in_words(@forum.created_at) %> ago</p>
+      	<p class="post_meta"><span><%= @forum.user.email %> </span><%= time_ago_in_words(@forum.created_at) %> ago</p>
       	<div class="post_text">
           <p><%= @forum.content %></p>
       	</div>
