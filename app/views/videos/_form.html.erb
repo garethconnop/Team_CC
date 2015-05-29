@@ -8,23 +8,37 @@
     </ul>
   <% end %>
 
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
 
-  <%= f.label :description%>
-  <%= f.text_field :description%>
+  <div class="field">
+    <%= f.label :description%><br>
+    <%= f.text_field :description%>
+  </div>
 
-  <%= f.label :video_category_id, "Category" %>
-  <%= f.collection_select :video_category_id, VideoCategory.all, :id, :name, { prompt: "Choose a Category" } %>
+  <div class="field">
+    <%= f.label :video_category_id, "Category" %><br>
+    <%= f.collection_select :video_category_id, VideoCategory.all, :id, :name, { prompt: "Choose a Category" } %>
+  </div>
 
-  <%= f.label :image%>
-  <%= f.file_field :image%>
+  <div class="field">
+    <%= f.label :image%><br>
+    <%= f.file_field :image%>
+  </div>
 
-  <%= f.label :video_id, 'Video ID'%>
-  <%= f.text_field :video_id%>
+  <div class="field">
+    <%= f.label :video_id, 'Video ID'%><br>
+    <%= f.text_field :video_id%>
+  </div>
 
-  <%= f.label :length%>
-  <%= f.text_field :length%>
+  <div class="field">
+    <%= f.label :length%><br>
+    <%= f.text_field :length%>
+  </div>
 
-  <%= f.submit %>
+  <div class="actions">
+    <%= f.submit class: "button button_highlight button_block" %>
+  </div>
 <% end %>
