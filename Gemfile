@@ -13,6 +13,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'paperclip', '~> 4.2.1'
 gem 'will_paginate', '~> 3.0.7'
 gem 'friendly_id', '~> 5.1.0'
+gem 'devise', '~> 3.5.1'
 
 group :development, :test do
   gem 'byebug'
