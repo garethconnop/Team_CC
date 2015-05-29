@@ -15,29 +15,33 @@
 			</ul>
 		</nav>
 
-    <% @videos.each_slice(3) do |videos| %>
-      <div class="video_row cf">
-        <% videos.each do |video| %>
-          <div class="video">
-				    <%= link_to video_path(video) do %>
-	            <div class="video_thumb" style="background-image: url(<%= video.image(:large) %>);">
-			          <div class="tint">
-			            <div class="title_wrapper">
-			              <h2><%= video.title %></h2>
-			              <p class="length"><%= video.length %></p>
-			            </div>
-			          </div>
-			        </div>
-			      <% end %>
-			      <%= link_to video.video_category.name, videos_path(video_category: video.video_category.name), class: "category" %>
-			      <p class="date"><%= video.created_at.strftime('%e %b %Y') %></p>
-			      <p class="description"><%= truncate(video.description, length: 110) %></p>
-		      </div>
-		  	<% end %>
-		  </div>
-		<% end %>
+    <%- if @videos.size > 0 %>
+	    <% @videos.each_slice(3) do |videos| %>
+	      <div class="video_row cf">
+	        <% videos.each do |video| %>
+	          <div class="video">
+					    <%= link_to video_path(video) do %>
+		            <div class="video_thumb" style="background-image: url(<%= video.image(:large) %>);">
+				          <div class="tint">
+				            <div class="title_wrapper">
+				              <h2><%= video.title %></h2>
+				              <p class="length"><%= video.length %></p>
+				            </div>
+				          </div>
+				        </div>
+				      <% end %>
+				      <%= link_to video.video_category.name, videos_path(video_category: video.video_category.name), class: "category" %>
+				      <p class="date"><%= video.created_at.strftime('%e %b %Y') %></p>
+				      <p class="description"><%= truncate(video.description, length: 110) %></p>
+			      </div>
+			  	<% end %>
+			  </div>
+			<% end %>
 
-		<%= will_paginate @videos, previous_label: "Prev", next_label: "Next", inner_window: 1, outer_window: 0 %>
+			<%= will_paginate @videos, previous_label: "Prev", next_label: "Next", inner_window: 1, outer_window: 0 %>
+		<%- else %>
+      <p class="no_content">There are no videos in this Category at the momment.</p>
+    <% end %>
 
 	</div>
 </div>

@@ -84,6 +84,7 @@ $text: #8C989E;
 		float: left;
 		text-transform: uppercase;
 		font-weight: 400;
+		font-size: 1.1rem;
 		letter-spacing: 5px;
 		color: $white;
 		text-decoration: none;
@@ -242,6 +243,12 @@ textarea {
 			color: lighten($text, 20%); 
 		}
 	}
+}
+
+.no_content {
+  margin: 0;
+  font-weight: 300;
+  font-size: 1rem;
 }
 
 @import 'normalize';
