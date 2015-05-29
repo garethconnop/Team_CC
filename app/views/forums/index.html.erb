@@ -28,7 +28,7 @@
           <div class="post_reply_count">
             <p class="reply_count">0<span>Replies</span></p>
           </div>
-        </div><!-- forum_post -->
+        </div>
       <% end %>
 
       <%= will_paginate @forums, previous_label: "Prev", next_label: "Next", inner_window: 1, outer_window: 0 %>
@@ -36,7 +36,6 @@
 		</div>
 		<div id="forum_sidebar">
       <%= link_to "New Post", new_forum_path, class: "button button_highlight button_block" %>
-			<!-- <a href="#" class="button button_highlight button_block">New Post</a> -->
 			<a class="category_dropdown" href="#">Categories<span class="icon-chevron-down"></span></a>
 			<nav>
 				<ul>

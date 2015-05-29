@@ -23,7 +23,7 @@
     </div>
 
     <div class="comments">
-    	<h2 class="comment_count"><%= @forum.forum_comments.count%></h2>
+    	<h2 class="comment_count"><%= pluralize(@forum.forum_comments.count, "Reply") %></h2>
       <%= render @forum.forum_comments %>
     	<h2 class="reply">Reply</h2>
       <%= render "forum_comments/form" %>

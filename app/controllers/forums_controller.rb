@@ -8,12 +8,10 @@ class ForumsController < ApplicationController
 
 	def new
 		@forum = current_user.forums.build
-		# @forum = Forum.new
 	end
 
 	def create
 		@forum = current_user.forums.build forum_params
-		# @forum = Forum.new forum_params
 
 		if @forum.save
 			redirect_to @forum, notice: "The post was saved successfully!"

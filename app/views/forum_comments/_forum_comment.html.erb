@@ -9,8 +9,8 @@
   	  <p><%= forum_comment.forum_comment %></p>
   	</div>
   	<div class="authorised_links cf">
-    	<a class="edit_link" href="#">Edit</a>
-  	  <a class="delete_link" href="#">Delete</a>
+  	  <%= link_to "Edit", edit_forum_forum_comment_path(forum_comment.forum, forum_comment), class: "edit_link" %>
+    	<%= link_to "Delete", [forum_comment.forum, forum_comment], method: :delete, data: { confirm: "Are you sure?" }, class: "delete_link" %>
   	</div>
   </div>
 </div>
