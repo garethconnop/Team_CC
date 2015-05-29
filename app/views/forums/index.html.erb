@@ -1,0 +1,54 @@
+<div id="banner" class="discussions_banner">
+  <div class="wrapper_skinny">
+	  <h1>Get help and advice on exercise, nutrition and mobility</h1>
+	</div>
+</div>
+
+<div id="forum">
+	<div class="wrapper_wide cf">
+		<div id="forum_posts">
+			<nav>
+				<ul>
+					<li><a class="active" href="#">My Posts</a></li>
+					<li><a href="#">Recent</a></li>
+					<li><a href="#">Unanswered</a></li>
+					<li><a href="#">Active</a></li>
+				</ul>
+			</nav>
+      <%- @forums.each do |forum| %>
+        <div class="forum_post cf">
+          <div class="user_image">
+            <img src="images/avatar.jpg" alt="Authors Avatar">
+          </div>
+          <div class="post_content">
+            <h2><%= link_to forum.title, forum %></h2>
+            <p class="post_meta"><span>Gareth </span><%= time_ago_in_words(forum.created_at) %> ago</p>
+            <a class="post_category" href="#">Exercise</a>
+          </div>
+          <div class="post_reply_count">
+            <p class="reply_count">0<span>Replies</span></p>
+          </div>
+        </div><!-- forum_post -->
+      <% end %>
+
+      <%= will_paginate @forums, previous_label: "Prev", next_label: "Next", inner_window: 1, outer_window: 0 %>
+      
+		</div>
+		<div id="forum_sidebar">
+      <%= link_to "New Post", new_forum_path, class: "button button_highlight button_block" %>
+			<!-- <a href="#" class="button button_highlight button_block">New Post</a> -->
+			<a class="category_dropdown" href="#">Categories<span class="icon-chevron-down"></span></a>
+			<nav>
+				<ul>
+					<li><a class="active" href="#">All Categories</a></li>
+					<li><a href="#">Introductions</a></li>
+					<li><a href="#">Lifestyle</a></li>
+					<li><a href="#">Exercise</a></li>
+					<li><a href="#">Nutrition</a></li>
+					<li><a href="#">Mobility</a></li>
+					<li><a href="#">General</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>

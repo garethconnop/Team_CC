@@ -1,0 +1,71 @@
+<div id="forum_show">
+	<div class="forum_wrapper">
+    <%= link_to forums_path, class: "back_link" do %>
+      <span class="icon-arrow-left2"></span>
+      Back to Forum
+    <% end %>
+		<div class="forum_post cf">
+      <div class="user_image">
+    	  <img src="images/avatar.jpg" alt="Authors Avatar">
+    	</div>
+    	<div class="post_content">
+        <h2><%= @forum.title %></h2>
+      	<p class="post_meta"><span>Gareth </span><%= time_ago_in_words(@forum.created_at) %> ago</p>
+      	<div class="post_text">
+          <p><%= @forum.content %></p>
+      	</div>
+      	<a class="post_category" href="#">Exercise</a>
+      	<div class="authorised_links cf">
+          <%= link_to "Edit", edit_forum_path(@forum), class: "edit_link" %>
+          <%= link_to "Delete", forum_path(@forum), method: :delete, data: { confirm: "Are you sure?" }, class: "delete_link" %>
+      	</div>
+    	</div>
+    </div>
+
+    <div class="comments">
+    	<h2 class="comment_count">2 Replies</h2>
+    	<div class="comment_post cf">
+    		<div class="user_image">
+      	  <img src="images/avatar.jpg" alt="Authors Avatar">
+      	</div>
+        <div class="comment_content">
+        	<h2>Gareth</h2>
+        	<p class="comment_meta">About 2 hours ago</p>
+        	<div class="comment_text">
+        	  <p>Banjo umami artisan, polaroid Echo Park direct trade mustache ennui pop-up slow-carb mixtape biodiesel.</p>
+        	  <p>Bushwick church-key viral Wes Anderson banjo, photo booth Kickstarter. Lumbersexual yr small batch swag try-hard biodiesel, 3 wolf moon migas ethical jean shorts iPhone.</p>
+        	  <p>Try-hard single-origin coffee plaid, DIY four loko Thundercats umami pork belly chillwave tilde deep. Lumbersexual actually fingerstache YOLO, bitters photo booth shabby chic pug next level swag mumblecore try-hard yr.</p>
+        	</div>
+        	<div class="authorised_links cf">
+          	<a class="edit_link" href="#">Edit</a>
+        	  <a class="delete_link" href="#">Delete</a>
+        	</div>
+        </div>
+    	</div><!-- comment_post -->
+    	<div class="comment_post cf">
+    		<div class="user_image">
+      	  <img src="images/avatar.jpg" alt="Authors Avatar">
+      	</div>
+        <div class="comment_content">
+        	<h2>Gareth</h2>
+        	<p class="comment_meta">About 2 hours ago</p>
+        	<div class="comment_text">
+        	  <p>Banjo umami artisan, polaroid Echo Park direct trade mustache ennui pop-up slow-carb mixtape biodiesel.</p>
+        	  <p>Bushwick church-key viral Wes Anderson banjo, photo booth Kickstarter. Lumbersexual yr small batch swag try-hard biodiesel, 3 wolf moon migas ethical jean shorts iPhone.</p>
+        	  <p>Try-hard single-origin coffee plaid, DIY four loko Thundercats umami pork belly chillwave tilde deep. Lumbersexual actually fingerstache YOLO, bitters photo booth shabby chic pug next level swag mumblecore try-hard yr.</p>
+        	</div>
+        </div>
+    	</div><!-- comment_post -->
+
+    	<h2 class="reply">Reply</h2>
+    	<form>
+    	  <div class="field">
+      		<textarea></textarea>
+      	</div>
+    		<div class="actions">
+    		  <input type="submit" class="button button_highlight button_block">
+    		</div>
+    	</form>
+    </div><!-- comments -->
+	</div>
+</div>
