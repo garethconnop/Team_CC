@@ -11,13 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529142641) do
+ActiveRecord::Schema.define(version: 20150529162805) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "forum_comments", force: :cascade do |t|
+    t.text     "forum_comment"
+    t.integer  "forum_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "forum_comments", ["forum_id"], name: "index_forum_comments_on_forum_id"
+  add_index "forum_comments", ["user_id"], name: "index_forum_comments_on_user_id"
 
   create_table "forums", force: :cascade do |t|
     t.string   "title"
