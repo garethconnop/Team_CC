@@ -4,10 +4,14 @@
 	  	<%= link_to "Teamcc", root_path, id: "logo" %>
 	  	<nav>
 	  		<ul>
-	  			<li><a href="#">Discussions</a></li>
+	  			<li><%= link_to "Discussions", forums_path %></li>
 	  			<li><%= link_to "Videos", videos_path %></li>
 	  			<li><a href="#">Programs</a></li>
-  			  <li><a href="#">Sign in</a></li>
+	  			<%- if user_signed_in? %>
+	          <li><%= link_to("Sign Out", destroy_user_session_path, method: :delete) %></li>
+	        <%- else %>
+	          <li><%= link_to "Sign In", new_user_session_path %></li>
+	        <% end %>
 	  		</ul>
 	  	</nav>
 	  </div>
