@@ -1,9 +1,9 @@
 <div class="comment_post cf">
 	<div class="user_image">
-	  <img src="images/avatar.jpg" alt="Authors Avatar">
+    <%= image_tag forum_comment.user.avatar.url(:thumb), alt: "Authors Avatar" %>
 	</div>
   <div class="comment_content">
-  	<h2><%= forum_comment.user.email %><!-- Gareth --></h2>
+  	<h2><%= forum_comment.user.username %></h2>
   	<p class="comment_meta"><%= time_ago_in_words(@forum.created_at) %> ago</p>
   	<div class="comment_text">
   	  <p><%= forum_comment.forum_comment %></p>

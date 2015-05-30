@@ -18,11 +18,11 @@
       <%- @forums.each do |forum| %>
         <div class="forum_post cf">
           <div class="user_image">
-            <img src="images/avatar.jpg" alt="Authors Avatar">
+            <%= image_tag forum.user.avatar.url(:thumb), alt: "Authors Avatar" %>
           </div>
           <div class="post_content">
             <h2><%= link_to forum.title, forum %></h2>
-            <p class="post_meta"><span><%= forum.user.email %> </span><%= time_ago_in_words(forum.created_at) %> ago</p>
+            <p class="post_meta"><span><%= forum.user.username %> </span><%= time_ago_in_words(forum.created_at) %> ago</p>
             <a class="post_category" href="#">Exercise</a>
           </div>
           <div class="post_reply_count">

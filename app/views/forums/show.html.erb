@@ -6,11 +6,11 @@
     <% end %>
 		<div class="forum_post cf">
       <div class="user_image">
-    	  <img src="images/avatar.jpg" alt="Authors Avatar">
+        <%= image_tag @forum.user.avatar.url(:thumb), alt: "Authors Avatar" %>
     	</div>
     	<div class="post_content">
         <h2><%= @forum.title %></h2>
-      	<p class="post_meta"><span><%= @forum.user.email %> </span><%= time_ago_in_words(@forum.created_at) %> ago</p>
+      	<p class="post_meta"><span><%= @forum.user.username %> </span><%= time_ago_in_words(@forum.created_at) %> ago</p>
       	<div class="post_text">
           <p><%= @forum.content %></p>
       	</div>
