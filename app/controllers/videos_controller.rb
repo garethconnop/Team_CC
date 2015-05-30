@@ -1,5 +1,7 @@
 class VideosController < ApplicationController
 	before_action :find_video, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!, except: [:index, :show]
+
 	def index
 		if params[:video_category].blank?
 			@videos = Video.all.order("created_at desc").paginate(page: params[:page], per_page: 12)

@@ -26,7 +26,7 @@
             <a class="post_category" href="#">Exercise</a>
           </div>
           <div class="post_reply_count">
-            <p class="reply_count">0<span>Replies</span></p>
+            <p class="reply_count"><%= forum.forum_comments.count %><span><%= "Reply".pluralize(forum.forum_comments.count) %></span></p>
           </div>
         </div>
       <% end %>
