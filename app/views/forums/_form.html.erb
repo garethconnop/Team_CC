@@ -14,6 +14,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :forum_category_id, "Category" %><br>
+    <%= f.collection_select :forum_category_id, ForumCategory.all, :id, :name, { prompt: "Choose a Category" } %>
+  </div>
+
+  <div class="field">
     <%= f.label :content%><br>
     <%= f.text_area :content%>
   </div>

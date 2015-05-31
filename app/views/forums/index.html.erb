@@ -15,39 +15,52 @@
 					<li><a href="#">Active</a></li>
 				</ul>
 			</nav>
-      <%- @forums.each do |forum| %>
-        <div class="forum_post cf">
-          <div class="user_image">
-            <%= image_tag forum.user.avatar.url(:thumb), alt: "Authors Avatar" %>
-          </div>
-          <div class="post_content">
-            <h2><%= link_to forum.title, forum %></h2>
-            <p class="post_meta"><span><%= forum.user.username %> </span><%= time_ago_in_words(forum.created_at) %> ago</p>
-            <a class="post_category" href="#">Exercise</a>
-          </div>
-          <div class="post_reply_count">
-            <p class="reply_count"><%= forum.forum_comments.count %><span><%= "Reply".pluralize(forum.forum_comments.count) %></span></p>
-          </div>
-        </div>
-      <% end %>
 
-      <%= will_paginate @forums, previous_label: "Prev", next_label: "Next", inner_window: 1, outer_window: 0 %>
-      
+			<%- if @forums.size > 0 %>
+	      <%- @forums.each do |forum| %>
+	        <div class="forum_post cf">
+	          <div class="user_image">
+	            <%= image_tag forum.user.avatar.url(:thumb), alt: "Authors Avatar" %>
+	          </div>
+	          <div class="post_content">
+	            <h2><%= link_to forum.title, forum %></h2>
+	            <p class="post_meta"><span><%= forum.user.username %> </span><%= time_ago_in_words(forum.created_at) %> ago</p>
+	            <%= link_to forum.forum_category.name, forums_path(forum_category: forum.forum_category.name), class: "post_category" %>
+	          </div>
+	          <div class="post_reply_count">
+	            <p class="reply_count"><%= forum.forum_comments.count %><span><%= "Reply".pluralize(forum.forum_comments.count) %></span></p>
+	          </div>
+	        </div>
+	      <% end %>
+
+	      <%= will_paginate @forums, previous_label: "Prev", next_label: "Next", inner_window: 1, outer_window: 0 %>
+      <%- else %>
+	      <p class="no_content">There are no posts in this Category at the momment.</p>
+	    <% end %>
 		</div>
 		<div id="forum_sidebar">
       <%= link_to "New Post", new_forum_path, class: "button button_highlight button_block" %>
 			<a class="category_dropdown" href="#">Categories<span class="icon-chevron-down"></span></a>
 			<nav>
 				<ul>
-					<li><a class="active" href="#">All Categories</a></li>
-					<li><a href="#">Introductions</a></li>
+				  <%- if request.fullpath == "/forums" %>
+	          <li><%= link_to "All Categories", forums_path, class: "active" %></li>
+	        <%- else %>
+	          <li><%= link_to "All Categories", forums_path %></li>
+	        <% end %>
+					<!-- <li><a class="active" href="#">All Categories</a></li> -->
+					<%- ForumCategory.all.each do |forum_category| %>
+				    <li><%= link_to forum_category.name, forums_path(forum_category: forum_category.name), class: "#{active(forums_path(forum_category: forum_category.name))}" %></li>
+				  <% end %>
+					<!-- <li><a href="#">Introductions</a></li>
 					<li><a href="#">Lifestyle</a></li>
 					<li><a href="#">Exercise</a></li>
 					<li><a href="#">Nutrition</a></li>
 					<li><a href="#">Mobility</a></li>
-					<li><a href="#">General</a></li>
+					<li><a href="#">General</a></li> -->
 				</ul>
 			</nav>
 		</div>
+
 	</div>
 </div>

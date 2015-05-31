@@ -3,7 +3,12 @@ class ForumsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
 	def index
-		@forums = Forum.all.order("created_at desc").paginate(page: params[:page], per_page: 10)
+		if params[:forum_category].blank?
+		  @forums = Forum.all.order("created_at desc").paginate(page: params[:page], per_page: 10)
+		else
+			@category_id = ForumCategory.find_by(name: params[:forum_category]).id
+			@forums = Forum.where(forum_category: @category_id).order("created_at desc").paginate(page: params[:page], per_page: 10)
+		end
 	end
 
 	def new
@@ -42,7 +47,7 @@ class ForumsController < ApplicationController
 	private
 
 	def forum_params
-		params.require(:forum).permit(:title, :content)
+		params.require(:forum).permit(:title, :content, :forum_category_id)
 	end
 
 	def find_forum
