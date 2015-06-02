@@ -62,10 +62,10 @@ class ForumsController < ApplicationController
 	private
 
 	def forum_params
-		params.require(:forum).permit(:title, :content, :forum_category_id)
+		params.require(:forum).permit(:title, :content, :forum_category_id, :slug)
 	end
 
 	def find_forum
-		@forum = Forum.find(params[:id])
+		@forum = Forum.friendly.find(params[:id])
 	end
 end

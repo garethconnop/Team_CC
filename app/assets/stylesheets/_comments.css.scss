@@ -25,6 +25,11 @@
 			width: 91%;
   		margin-left: 2.5%;
   		float: left;
+  		h2 {
+	  		&::first-letter {
+	        text-transform: uppercase;
+		  	}
+  		}
 			.comment_meta {
 			  margin: 0 0 3rem;
 			  font-size: .9rem;

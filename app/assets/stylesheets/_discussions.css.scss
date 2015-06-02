@@ -71,6 +71,10 @@
 	  				font-size: 1.25rem;
 	  				font-weight: 400;
 	  				color: $highlight;
+	  				display: block;
+	  				&::first-letter {
+	            text-transform: capitalize;
+		  			}
 	  			}
 	  		}
 	  		.post_meta {
@@ -78,8 +82,13 @@
 	  			font-size: .9rem;
 	  			font-weight: 300;
 	  			span {
+	  				margin: 0 .25rem 0 0;
 	  				font-size: 1rem;
 	  				font-weight: 400;
+	  				display: inline-block;
+	  				&::first-letter {
+	            text-transform: uppercase;
+		  	    }
 	  			}
 	  		}
 	  		.post_category {

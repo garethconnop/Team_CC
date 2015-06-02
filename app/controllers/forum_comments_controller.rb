@@ -37,6 +37,6 @@ class ForumCommentsController < ApplicationController
 	private
 
 	def find_forum
-		@forum = Forum.find(params[:forum_id])
+		@forum = Forum.find_by_slug(params[:forum_id])
 	end
 end

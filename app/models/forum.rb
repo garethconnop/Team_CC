@@ -5,4 +5,7 @@ class Forum < ActiveRecord::Base
 
 	scope :active,     ->{ where("forum_comments_count >= ?", 3) }
 	scope :unanswered, ->{ where(forum_comments_count: 0) }
+
+	extend FriendlyId
+  friendly_id :title, use: :slugged
 end

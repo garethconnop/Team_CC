@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150531190744) do
+ActiveRecord::Schema.define(version: 20150602002613) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -44,9 +44,11 @@ ActiveRecord::Schema.define(version: 20150531190744) do
     t.integer  "user_id"
     t.string   "forum_category_id"
     t.integer  "forum_comments_count", default: 0
+    t.string   "slug"
   end
 
   add_index "forums", ["forum_category_id"], name: "index_forums_on_forum_category_id"
+  add_index "forums", ["slug"], name: "index_forums_on_slug", unique: true
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
