@@ -7,14 +7,40 @@
 <div id="forum">
 	<div class="wrapper_wide cf">
 		<div id="forum_posts">
-			<nav>
-				<ul>
-					<li><a class="active" href="#">My Posts</a></li>
-					<li><a href="#">Recent</a></li>
-					<li><a href="#">Unanswered</a></li>
-					<li><a href="#">Active</a></li>
-				</ul>
-			</nav>
+		  <%- if request.fullpath == "/forums?forum_category=Introductions" %>
+				<h2 class="category_title">Introductions</h2>
+				<p class="category_description">Introduce yourself to the rest of the team.</p>
+			<%- elsif request.fullpath == "/forums?forum_category=Lifestyle" %>
+				<h2 class="category_title">Lifestyle</h2>
+				<p class="category_description">Introduce yourself to the rest of the team.</p>
+			<%- elsif request.fullpath == "/forums?forum_category=Exercise" %>
+				<h2 class="category_title">Exercise</h2>
+				<p class="category_description">Introduce yourself to the rest of the team.</p>
+			<%- elsif request.fullpath == "/forums?forum_category=Nutrition" %>
+				<h2 class="category_title">Nutrition</h2>
+				<p class="category_description">Introduce yourself to the rest of the team.</p>
+			<%- elsif request.fullpath == "/forums?forum_category=Mobility" %>
+				<h2 class="category_title">Mobility</h2>
+				<p class="category_description">Introduce yourself to the rest of the team.</p>
+			<%- elsif request.fullpath == "/forums?forum_category=General" %>
+				<h2 class="category_title">General</h2>
+				<p class="category_description">Introduce yourself to the rest of the team.</p>
+			<%- else %>
+			  <h2 class="category_title">Everything</h2>
+			  <p class="category_description all_category_description">All Posts.</p>
+        <nav>
+					<ul>
+						<%- if request.fullpath == "/forums/active" || request.fullpath == "/forums/unanswered" || request.fullpath == "/forums/my_posts" %>
+						  <li><%= link_to "Recent Posts", forums_path %></li>
+						<%- else %>
+						  <li><%= link_to "Recent Posts", forums_path, class: "active" %></li>
+						<% end %>
+						<li><%= link_to "Unanswered", unanswered_forums_path, class: "#{active(unanswered_forums_path)}" %></li>
+						<li><%= link_to "Active", active_forums_path, class: "#{active(active_forums_path)}" %></li>
+						<li><%= link_to "My Posts", my_posts_forums_path, class: "#{active(my_posts_forums_path)}" %></li>
+					</ul>
+				</nav>
+			<% end %>
 
 			<%- if @forums.size > 0 %>
 	      <%- @forums.each do |forum| %>
@@ -43,21 +69,14 @@
 			<a class="category_dropdown" href="#">Categories<span class="icon-chevron-down"></span></a>
 			<nav>
 				<ul>
-				  <%- if request.fullpath == "/forums" %>
-	          <li><%= link_to "All Categories", forums_path, class: "active" %></li>
+				  <%- if request.fullpath == "/forums" || request.fullpath == "/forums/active" || request.fullpath == "/forums/unanswered" || request.fullpath == "/forums/my_posts" %>
+	          <li><%= link_to "All", forums_path, class: "active" %></li>
 	        <%- else %>
-	          <li><%= link_to "All Categories", forums_path %></li>
+	          <li><%= link_to "All", forums_path %></li>
 	        <% end %>
-					<!-- <li><a class="active" href="#">All Categories</a></li> -->
 					<%- ForumCategory.all.each do |forum_category| %>
 				    <li><%= link_to forum_category.name, forums_path(forum_category: forum_category.name), class: "#{active(forums_path(forum_category: forum_category.name))}" %></li>
 				  <% end %>
-					<!-- <li><a href="#">Introductions</a></li>
-					<li><a href="#">Lifestyle</a></li>
-					<li><a href="#">Exercise</a></li>
-					<li><a href="#">Nutrition</a></li>
-					<li><a href="#">Mobility</a></li>
-					<li><a href="#">General</a></li> -->
 				</ul>
 			</nav>
 		</div>

@@ -3,7 +3,11 @@
     <%= link_to "Teamcc", root_path, id: "logo" %>
   	<nav>
   		<ul>
-        <li><%= link_to "Discussions", forums_path, class: "#{active(forums_path)}" %></li>
+        <%- if request.fullpath == "/forums" || request.fullpath == "/forums/active" || request.fullpath == "/forums/unanswered" || request.fullpath == "/forums/my_posts" %>
+          <li><%= link_to "Discussions", forums_path, class: "active" %></li>
+        <%- else %>
+          <li><%= link_to "Discussions", forums_path, class: "#{active(forums_path)}" %></li>
+        <% end %>
   			<li><%= link_to "Videos", videos_path, class: "#{active(videos_path)}" %></li>
   			<li><a href="#">Programs</a></li>
         <%- if user_signed_in? %>

@@ -44,6 +44,21 @@ class ForumsController < ApplicationController
 		redirect_to forums_path
 	end
 
+	def active
+		@forums = Forum.active.order("created_at desc").paginate(page: params[:page], per_page: 10)
+		render action: :index
+	end
+
+	def unanswered
+		@forums = Forum.unanswered.order("created_at desc").paginate(page: params[:page], per_page: 10)
+		render action: :index
+	end
+
+	def my_posts
+		@forums = current_user.forums.order("created_at desc").paginate(page: params[:page], per_page: 10)
+		render action: :index
+	end
+
 	private
 
 	def forum_params

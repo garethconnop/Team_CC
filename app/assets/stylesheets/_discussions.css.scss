@@ -28,6 +28,24 @@
 				}
 			}
 	  }
+	  .category_title {
+	  	color: $dark;
+	  	margin: 0;
+		  font-size: 1.5rem;
+		  font-weight: 400;
+		  padding: 0 0 .5rem;
+	  }
+	  .category_description {
+	  	margin: 0;
+		  font-weight: 300;
+		  font-style: italic;
+		  padding: 0 0 1rem;
+		  border-bottom: 1px solid #E9E9E9;
+	  }
+	  .all_category_description {
+	  	border-bottom: 0;
+	  	padding: 0 0 2rem;
+	  }
 	  .forum_post {
 	  	padding: 2rem 0;
 	  	border-bottom: 1px solid #E9E9E9;
