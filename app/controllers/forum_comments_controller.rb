@@ -10,7 +10,7 @@ class ForumCommentsController < ApplicationController
 		if @forum_comment.save
 			redirect_to forum_path(@forum)
 		else
-			render 'new'
+			redirect_to forum_path(@forum), alert: "Unable to save your post"
 		end
 	end
 
@@ -37,6 +37,6 @@ class ForumCommentsController < ApplicationController
 	private
 
 	def find_forum
-		@forum = Forum.find_by_slug(params[:forum_id])
+		@forum = Forum.find(params[:forum_id])
 	end
 end

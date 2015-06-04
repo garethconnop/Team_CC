@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150602175150) do
+ActiveRecord::Schema.define(version: 20150602203601) do
 
   create_table "forum_categories", force: :cascade do |t|
     t.string   "name"
@@ -38,11 +38,9 @@ ActiveRecord::Schema.define(version: 20150602175150) do
     t.integer  "user_id"
     t.string   "forum_category_id"
     t.integer  "forum_comments_count", default: 0
-    t.string   "slug"
   end
 
   add_index "forums", ["forum_category_id"], name: "index_forums_on_forum_category_id"
-  add_index "forums", ["slug"], name: "index_forums_on_slug", unique: true
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -78,8 +76,10 @@ ActiveRecord::Schema.define(version: 20150602175150) do
     t.string   "first_name"
     t.string   "last_name"
     t.boolean  "admin",                  default: false
+    t.datetime "deleted_at"
   end
 
+  add_index "users", ["deleted_at"], name: "index_users_on_deleted_at"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["username"], name: "index_users_on_username", unique: true

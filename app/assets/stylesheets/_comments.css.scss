@@ -15,11 +15,6 @@
 		.user_image {
 			width: 6.5%;
   		float: left;
-  		img {
-  			width: 40px;
-  			height: 40px;
-  			border-radius: 50%;
-  		}
 		}
 		.comment_content {
 			width: 91%;
@@ -36,6 +31,17 @@
 			  font-weight: 300;
 			}
 			.comment_text {
+				h1, h2, h3 {
+  				font-weight: 400;
+  				color: $dark;
+  				margin: 1rem 0;
+  			}
+  			h2 {
+  				font-size: 1.5rem;
+  			}
+  			h3 {
+  				font-size: 1.25rem;
+  			}
 				p {
 					font-weight: 300;
 					line-height: 1.8;

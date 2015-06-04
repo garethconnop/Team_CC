@@ -29,8 +29,14 @@
         <%= f.text_field :username %>
       </div>
 
-      <div class="field">
+      <div class="field cf">
         <%= f.label :avatar %><br />
+
+        <%- if @user.avatar.blank? %>
+          <%= image_tag @user.avatar.url(:thumb), alt: "Authors Avatar", class: "avatar no_avatar" %>
+        <% else %>
+          <%= image_tag @user.avatar.url(:thumb), alt: "Authors Avatar", class: "avatar" %>
+        <% end %>
         <%= f.file_field :avatar %>
       </div>
 
@@ -58,7 +64,7 @@
       </div>
     <% end %>
 
-    <h3>Cancel</h3>
-    <%= button_to "Cancel Subscription", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button button_highlight button_block" %>
+    <!-- <h3>Cancel</h3> -->
+    <!-- <%= button_to "Cancel Subscription", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button button_highlight button_block" %> -->
   </div>
 </div>

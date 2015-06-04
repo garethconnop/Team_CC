@@ -1,12 +1,16 @@
 <div class="comment_post cf">
 	<div class="user_image">
-    <%= image_tag forum_comment.user.avatar.url(:thumb), alt: "Authors Avatar" %>
+    <%- if forum_comment.user.avatar.blank? %>
+      <%= image_tag forum_comment.user.avatar.url(:thumb), alt: "Authors Avatar", class: "avatar no_avatar" %>
+    <% else %>
+      <%= image_tag forum_comment.user.avatar.url(:thumb), alt: "Authors Avatar", class: "avatar" %>
+    <% end %>
 	</div>
   <div class="comment_content">
   	<h2><%= forum_comment.user.username %></h2>
   	<p class="comment_meta"><%= time_ago_in_words(@forum.created_at) %> ago</p>
   	<div class="comment_text">
-  	  <p><%= forum_comment.forum_comment %></p>
+  	  <%= markdown forum_comment.forum_comment %>
   	</div>
   	<div class="authorised_links cf">
   	  <%= link_to "Edit", edit_forum_forum_comment_path(forum_comment.forum, forum_comment), class: "edit_link" %>

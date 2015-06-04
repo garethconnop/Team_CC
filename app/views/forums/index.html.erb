@@ -46,7 +46,11 @@
 	      <%- @forums.each do |forum| %>
 	        <div class="forum_post cf">
 	          <div class="user_image">
-	            <%= image_tag forum.user.avatar.url(:thumb), alt: "Authors Avatar" %>
+	            <%- if forum.user.avatar.blank? %>
+	              <%= image_tag forum.user.avatar.url(:thumb), alt: "Authors Avatar", class: "avatar no_avatar" %>
+	            <% else %>
+                <%= image_tag forum.user.avatar.url(:thumb), alt: "Authors Avatar", class: "avatar" %>
+	            <% end %>
 	          </div>
 	          <div class="post_content">
 	            <h2><%= link_to forum.title, forum %></h2>

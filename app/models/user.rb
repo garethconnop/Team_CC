@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  acts_as_paranoid
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -19,9 +21,9 @@ class User < ActiveRecord::Base
 	  end
 	end
 
-  validates :username, presence: true, length: {maximum: 24}, uniqueness: { case_sensitive: false }, format: { with: /\A[a-zA-Z0-9]*\z/, message: "can only contain letters and numbers, and be a maximum of 24 characters." }
+  validates :username, presence: true, length: {in: 2..24}, uniqueness: { case_sensitive: false }, format: { with: /\A[a-zA-Z0-9]*\z/, message: "can only contain letters and numbers and be a between 3 and 24 characters." }
 
  #Avatar
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }#, default_url: ":style/user.jpg"
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: ":style/avatar.jpg"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 end

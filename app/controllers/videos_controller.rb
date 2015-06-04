@@ -19,7 +19,7 @@ class VideosController < ApplicationController
 		@video = Video.new video_params
 
 		if @video.save
-  	  redirect_to @video, notice: "The video was saved successfully!"
+  	  redirect_to @video, notice: "The video was created successfully!"
   	else
   	  render 'new', notice: "The video was unable to be saved!"
   	end

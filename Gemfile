@@ -14,6 +14,8 @@ gem 'paperclip', '~> 4.2.1'
 gem 'will_paginate', '~> 3.0.7'
 gem 'friendly_id', '~> 5.1.0'
 gem 'devise', '~> 3.5.1'
+gem 'paranoia', '~> 2.1.2'
+gem 'redcarpet', '~> 3.2.3'
 
 group :development, :test do
   gem 'byebug'

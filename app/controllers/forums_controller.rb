@@ -66,6 +66,6 @@ class ForumsController < ApplicationController
 	end
 
 	def find_forum
-		@forum = Forum.friendly.find(params[:id])
+		@forum = Forum.find(params[:id])
 	end
 end

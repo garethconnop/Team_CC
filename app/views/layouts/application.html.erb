@@ -11,8 +11,15 @@
 	  <%= render 'layouts/header'; %>
 	<% end %>
 
-  <!-- <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p> -->
+  <%- if notice %>
+    <div id="notice_wrapper">
+      <p><%= notice %></p>
+    </div>
+  <%- elsif alert %>
+    <div id="notice_wrapper">
+      <p><%= alert %></p>
+    </div>
+  <% end %>
 
   <%= yield %>
 
