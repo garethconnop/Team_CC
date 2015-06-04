@@ -3,11 +3,11 @@
   	<div class="wrapper_wide">
   		<div class="video">
   			<div class="video_show_inner_wrapper">
-	  			<iframe src="https://player.vimeo.com/video/106514858" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	  			<iframe src="<%= @video.video_id %>" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
   			</div>
   		</div>
   		<div id="video_content">
-  			<h1><%= @video.title %></h1>
+  			<h1><%= @video.id %>: <%= @video.title %></h1>
   			<p id="description"><%= @video.description %></p>
         <%= link_to @video.video_category.name, videos_path(video_category: @video.video_category.name), id: "category" %>
   			<hr>
