@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150602203601) do
+ActiveRecord::Schema.define(version: 20150604155004) do
 
   create_table "forum_categories", force: :cascade do |t|
     t.string   "name"
@@ -89,6 +89,17 @@ ActiveRecord::Schema.define(version: 20150602203601) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "video_comments", force: :cascade do |t|
+    t.text     "video_comment"
+    t.integer  "video_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "video_comments", ["user_id"], name: "index_video_comments_on_user_id"
+  add_index "video_comments", ["video_id"], name: "index_video_comments_on_video_id"
 
   create_table "videos", force: :cascade do |t|
     t.string   "title"

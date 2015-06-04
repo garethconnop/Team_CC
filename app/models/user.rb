@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :forums
   has_many :forum_comments
+  has_many :video_comments
 
   #Login with username or email
   attr_accessor :login

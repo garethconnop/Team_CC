@@ -10,7 +10,7 @@ class ForumCommentsController < ApplicationController
 		if @forum_comment.save
 			redirect_to forum_path(@forum)
 		else
-			redirect_to forum_path(@forum), alert: "Unable to save your post"
+			redirect_to forum_path(@forum), alert: "Unable to save your comment"
 		end
 	end
 

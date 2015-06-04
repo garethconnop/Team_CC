@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   	resources :forum_comments
   end
 
-  resources :videos
+  resources :videos do
+    resources :video_comments
+  end
   
   get 'welcome/index'
   root 'welcome#index'
