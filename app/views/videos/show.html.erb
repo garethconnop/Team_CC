@@ -12,6 +12,12 @@
         <%= link_to @video.video_category.name, videos_path(video_category: @video.video_category.name), id: "category" %>
   			<hr>
   			<%= link_to "Back to Videos", videos_path, class: "button button_highlight" %>
+        <%- if current_user.try(:admin?) %>
+          <div class="authorised_links cf">
+            <%= link_to "Edit", edit_video_path(@video), class: "edit_link" %>
+            <%= link_to "Delete", video_path(@video), method: :delete, data: { confirm: "Are you sure you want to delete this video?"}, class: "delete_link" %>
+          </div>
+        <% end %>
   		</div>
   	</div>
 	</div>
@@ -24,5 +30,3 @@
   </div>
 </div>
 
-<%= link_to "Edit", edit_video_path(@video) %>
-<%= link_to "Delete", video_path(@video), method: :delete, data: { confirm: "Are you sure you want to delete this video?"}%>

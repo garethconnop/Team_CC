@@ -59,11 +59,11 @@
 			  width: 20%;
 			  border: 2px solid lighten($text, 25%);
 		  }
-		  a {
-		  	span {
-		  		font-size: .9rem;
-          margin-right: 0.25rem;
-		  	}
+		  .edit_link, .delete_link {
+        color: $text;
+        &:hover {
+        	color: darken($text, 20%);
+        }
 		  }
 		}
 	}

@@ -8,7 +8,7 @@ class ForumCommentsController < ApplicationController
     @forum_comment.save
 
 		if @forum_comment.save
-			redirect_to forum_path(@forum)
+			redirect_to forum_path(@forum, anchor: "forum_comment_#{@forum_comment.id}")
 		else
 			redirect_to forum_path(@forum), alert: "Unable to save your comment"
 		end

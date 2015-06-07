@@ -9,9 +9,16 @@
 		padding: 0 0 1rem;
 		border-bottom: 1px solid #E9E9E9;
 	}
-	.comment_post {
+	.forum_comment, .video_comment {
 		padding: 2rem 0;
 		border-bottom: 1px solid #E9E9E9;
+
+	  &:target {
+	  	background: rgba(135,216,211,.15);
+	  	padding: 2rem 5%;
+	  	transition: .5s ease;
+	  }
+
 		.user_image {
 			width: 6.5%;
   		float: left;
@@ -57,6 +64,12 @@
 			}
 		}
 	}
+
+  .forum_comment_background, .video_comment_background {
+  	background: $white !important;
+  	padding: 2rem 0 !important;
+  }
+
 	.reply {
     padding-top: 4rem;
 	}

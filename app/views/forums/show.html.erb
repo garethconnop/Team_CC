@@ -19,10 +19,17 @@
           <%= markdown @forum.content %>
       	</div>
         <%= link_to @forum.forum_category.name, forums_path(forum_category: @forum.forum_category.name), class: "post_category" %>
-      	<div class="authorised_links cf">
-          <%= link_to "Edit", edit_forum_path(@forum), class: "edit_link" %>
-          <%= link_to "Delete", forum_path(@forum), method: :delete, data: { confirm: "Are you sure?" }, class: "delete_link" %>
-      	</div>
+      	
+        <%- if @forum.user == current_user || current_user.try(:admin?) %>
+          <div class="authorised_links cf">
+            <%- if @forum.user == current_user || current_user.try(:admin?) %>
+              <%= link_to "Edit", edit_forum_path(@forum), class: "edit_link" %>
+            <% end %>
+            <%- if current_user.try(:admin?) %>
+              <%= link_to "Delete", forum_path(@forum), method: :delete, data: { confirm: "Are you sure?" }, class: "delete_link" %>
+            <% end %>
+          </div>
+        <% end %>
     	</div>
     </div>
 

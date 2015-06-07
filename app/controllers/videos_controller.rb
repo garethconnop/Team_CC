@@ -1,6 +1,7 @@
 class VideosController < ApplicationController
 	before_action :find_video, only: [:show, :edit, :update, :destroy]
-    before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_admin, only: [:new, :create, :edit, :update, :destroy]
 
 	def index
 		if params[:video_category].blank?
@@ -45,6 +46,12 @@ class VideosController < ApplicationController
 	end
 
 	private
+
+	def authenticate_admin
+		unless current_user.admin?
+			redirect_to videos_path, notice: "You're not supposed to be in there."
+		end
+	end
 
 	def video_params
 		params.require(:video).permit(:title, :length, :description, :video_id, :image, :slug, :video_category_id)

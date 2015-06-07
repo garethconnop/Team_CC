@@ -131,6 +131,7 @@
 			padding: 1.5rem 0 .7rem;
 			position: relative;
 		  display: block;
+		  cursor: pointer;
 		  border-bottom: 1px solid #E9E9E9;
 		  span {
 		  	position: absolute;
@@ -162,6 +163,9 @@
       		}
 	      }
 			}
+		}
+		.closed {
+			display: none;
 		}
 	}
 }

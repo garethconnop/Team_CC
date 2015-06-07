@@ -16,6 +16,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'devise', '~> 3.5.1'
 gem 'paranoia', '~> 2.1.2'
 gem 'redcarpet', '~> 3.2.3'
+gem 'jquery-turbolinks', '~> 2.1.0'
 
 group :development, :test do
   gem 'byebug'

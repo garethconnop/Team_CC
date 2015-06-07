@@ -69,8 +69,10 @@
 	    <% end %>
 		</div>
 		<div id="forum_sidebar">
-      <%= link_to "New Post", new_forum_path, class: "button button_highlight button_block" %>
-			<a class="category_dropdown" href="#">Categories<span class="icon-chevron-down"></span></a>
+      <%- if user_signed_in? %>
+        <%= link_to "New Post", new_forum_path, class: "button button_highlight button_block" %>
+      <% end %>
+			<a class="category_dropdown">Categories<span class="icon-chevron-down"></span></a>
 			<nav>
 				<ul>
 				  <%- if request.fullpath == "/forums" || request.fullpath == "/forums/active" || request.fullpath == "/forums/unanswered" || request.fullpath == "/forums/my_posts" %>

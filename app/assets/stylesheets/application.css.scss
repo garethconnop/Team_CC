@@ -210,6 +210,17 @@ img {
   label {
   	font-weight: 300;
   }
+  .links {
+  	  margin: 1rem 0 0;
+  	a {
+  		color: $text;
+		  font-weight: 300;
+		  transition: color .2s ease-in-out;
+		  &:hover {
+		  	color: $highlight;
+		  }
+  	}
+  }
 }
 
 .field {

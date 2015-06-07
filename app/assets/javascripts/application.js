@@ -11,14 +11,34 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
 
 $(document).ready(function() {
+
+  // Notices and alerts
+
   setTimeout(function(){
     $('#notice_wrapper').fadeOut("slow", function() {
       $(this).remove();
     })
   }, 4500);
+
+  // Forum sidebar category dropdown
+
+  $('.category_dropdown').click(function() {
+  	$('.category_dropdown span').toggleClass('icon-chevron-down');
+  	$('.category_dropdown span').toggleClass('icon-chevron-up');
+  	$('#forum_sidebar nav').slideToggle(200);
+  });
+
+  // Comments
+
+  setTimeout(function() {
+	  $('.forum_comment:target').addClass("forum_comment_background");
+	  $('.video_comment:target').addClass("video_comment_background");
+	}, 3000);
+
 });

@@ -1,7 +1,14 @@
 <div id="banner" class="videos_banner">
-  <div class="wrapper_skinny">
-	  <h1>A collection of videos covering exercise and mobility</h1>
-	</div>
+  <%- if current_user.try(:admin?) %>
+	  <div class="wrapper_skinny video_admin_headline">
+		  <h1>A collection of videos covering exercise and mobility</h1>
+		  <%= link_to "New Video", new_video_path, class: "button button_highlight" %>
+		</div>
+  <%- else %>
+    <div class="wrapper_skinny">
+      <h1>A collection of videos covering exercise and mobility</h1>
+    </div>
+  <% end %>
 </div>
 
 <div id="videos">

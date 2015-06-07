@@ -8,7 +8,7 @@ class VideoCommentsController < ApplicationController
     @video_comment.save
 
 		if @video_comment.save
-			redirect_to video_path(@video)
+			redirect_to video_path(@video, anchor: "video_comment_#{@video_comment.id}")
 		else
 			redirect_to video_path(@video), alert: "Unable to save your comment"
 		end
@@ -37,6 +37,6 @@ class VideoCommentsController < ApplicationController
 	private
 
 	def find_video
-		@video = Video.find(params[:video_id])
+		@video = Video.find_by_slug(params[:video_id])
 	end
 end
