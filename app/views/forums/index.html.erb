@@ -37,7 +37,9 @@
 						<% end %>
 						<li><%= link_to "Unanswered", unanswered_forums_path, class: "#{active(unanswered_forums_path)}" %></li>
 						<li><%= link_to "Active", active_forums_path, class: "#{active(active_forums_path)}" %></li>
-						<li><%= link_to "My Posts", my_posts_forums_path, class: "#{active(my_posts_forums_path)}" %></li>
+						<%- if user_signed_in? %>
+						  <li><%= link_to "My Posts", my_posts_forums_path, class: "#{active(my_posts_forums_path)}" %></li>
+						<% end %>
 					</ul>
 				</nav>
 			<% end %>

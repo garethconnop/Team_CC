@@ -1,6 +1,6 @@
 class ForumsController < ApplicationController
   before_action :find_forum, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :active, :unanswered]
 
 	def index
 		if params[:forum_category].blank?

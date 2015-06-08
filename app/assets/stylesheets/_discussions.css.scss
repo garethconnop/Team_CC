@@ -125,10 +125,13 @@
 	#forum_sidebar {
 		width: 23%;
 		float: left;
+		.button {
+			margin-bottom: 1.5rem;
+		}
 		.category_dropdown {
 			text-decoration: none;
 			color: $text;
-			padding: 1.5rem 0 .7rem;
+			padding: 0 0 .7rem;
 			position: relative;
 		  display: block;
 		  cursor: pointer;
@@ -136,7 +139,7 @@
 		  span {
 		  	position: absolute;
 			  font-size: .85rem;
-			  top: 28px;
+			  top: 4px;
 			  right: 0;
 		  }
 		}

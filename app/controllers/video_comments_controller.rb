@@ -22,7 +22,7 @@ class VideoCommentsController < ApplicationController
 		@video_comment = @video.video_comments.find(params[:id])
 
 		if @video_comment.update(params[:video_comment].permit(:video_comment))
-			redirect_to video_path(@video)
+			redirect_to video_path(@video, anchor: "video_comment_#{@video_comment.id}")
 		else
 			render 'edit'
 		end

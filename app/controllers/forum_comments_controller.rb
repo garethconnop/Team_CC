@@ -22,7 +22,7 @@ class ForumCommentsController < ApplicationController
 		@forum_comment = @forum.forum_comments.find(params[:id])
 
 		if @forum_comment.update(params[:forum_comment].permit(:forum_comment))
-			redirect_to forum_path(@forum)
+			redirect_to forum_path(@forum, anchor: "forum_comment_#{@forum_comment.id}")
 		else
 			render 'edit'
 		end
