@@ -1,0 +1,37 @@
+<div id="banner" class="programs_banner">
+  <%- if current_user.try(:admin?) %>
+	  <div class="wrapper_skinny program_admin_headline">
+		  <h1>A collection of programs</h1>
+		  <%= link_to "New Program", new_program_path, class: "button button_highlight" %>
+		</div>
+  <%- else %>
+    <div class="wrapper_skinny">
+      <h1>A collection of programs</h1>
+    </div>
+  <% end %>
+</div>
+
+<div id="videos">
+	<div class="video_wrapper">
+	  <ol>
+	    <li>
+		  <%- if @programs.size > 0 %>
+	      <% @programs.each do |program| %>
+	        <h2><%= program.title %></h2>
+	        <p><%= program.description %></p>
+	        <a href="#">Download</a>
+	        <%- if current_user.try(:admin?) %>
+	          <div class="authorised_links cf">
+	            <%= link_to "Edit", edit_program_path(program), class: "edit_link" %>
+	            <%= link_to "Delete", program_path(program), method: :delete, data: { confirm: "Are you sure you want to delete this program?"}, class: "delete_link" %>
+	          </div>
+	        <% end %>
+	      <% end %>
+	      <%= will_paginate @programs, previous_label: "Prev", next_label: "Next", inner_window: 1, outer_window: 0 %>
+		  <%- else %>
+	      <p class="no_content">There are no programs at the momment.</p>
+		  <% end %>
+		  </li>
+	  </ol>
+	</div>
+</div>

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :videos do
     resources :video_comments
   end
+
+  resources :programs
   
   get 'welcome/index'
   root 'welcome#index'
