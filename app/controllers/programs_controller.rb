@@ -4,7 +4,7 @@ class ProgramsController < ApplicationController
   before_action :authenticate_admin, only: [:new, :create, :edit, :update, :destroy]
 
 	def index
-    @programs = Program.all.order("created_at desc").paginate(page: params[:page], per_page: 1)
+    @programs = Program.all.order("created_at desc").paginate(page: params[:page], per_page: 10)
 	end
 
 	def new
@@ -46,7 +46,7 @@ class ProgramsController < ApplicationController
 	end
 
 	def program_params
-		params.require(:program).permit(:title, :description)
+		params.require(:program).permit(:title, :description, :pdf)
 	end
 
 	def find_program

@@ -1,0 +1,52 @@
+#banner {
+	.program_admin_headline {
+    text-align: center;
+		h1 {
+	    padding: 4rem 0 2rem;
+		}
+		.button {
+	    margin-bottom: 3rem;
+		}
+	}
+}
+
+#programs {
+	padding-bottom: 4rem;
+	.program_wrapper {
+		width: 90%;
+		max-width: 1152px;
+		margin: 0 auto;
+		.program {
+			padding: 2rem 0;
+			border-bottom: 1px solid #E9E9E9;
+      h2 {
+      	margin: 0;
+      	font-size: 1.25rem;
+      	font-weight: 400;
+      	color: $dark;
+      }
+      p {
+      	font-weight: 300;
+      }
+      .pdf {
+      	color: $highlight;
+        font-weight: 400;
+      	text-decoration: none;
+      	transition: .2s ease-in-out;
+      	&:hover {
+      		color: darken($highlight, 10%);
+      	}
+      	span {
+      		margin-left: .25rem;
+      		font-size: .8rem;
+      	}
+      }
+      &:nth-child(1) {
+      	padding-top: 0;
+      }
+      &:nth-child(10) {
+	      margin-bottom: 4rem;
+			}
+		}
+	}
+}

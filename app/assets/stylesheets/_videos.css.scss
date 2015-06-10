@@ -41,11 +41,12 @@
 			}
 	  }
 	  .video_row {
+	  	margin-bottom: 4rem;
 			.video {
 				position: relative;
 				width: 31.111111111111%;
 				float: left;
-				margin: 0 3.333333333333% 4rem 0;
+				margin: 0 3.333333333333% 0 0;
 	      .video_thumb {
 	      	width: 100%;
 			  	position: relative;
@@ -107,6 +108,12 @@
 			  	margin-bottom: 0;
 			  }
 			}
+			&:last-child {
+		    margin-bottom: 0;
+		  }
+			&:nth-child(13) {
+		  	margin-bottom: 4rem;
+		  }
 		}
 	}
 }
