@@ -27,6 +27,16 @@
       }
       p {
       	font-weight: 300;
+        margin-bottom: 0;
+      }
+      .program_description {
+        width: 80%;
+        float: left;
+      }
+      .program_download_open {
+        width: 20%;
+        float: left;
+        text-align: right;
       }
       .pdf {
       	color: $highlight;
