@@ -37,6 +37,7 @@
         width: 20%;
         float: left;
         text-align: right;
+        color: lighten($text, 20%);
       }
       .pdf {
       	color: $highlight;

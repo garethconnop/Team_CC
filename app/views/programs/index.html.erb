@@ -31,7 +31,7 @@
 	            <%= link_to "Delete", program_path(program), method: :delete, data: { confirm: "Are you sure you want to delete this program?"}, class: "delete_link" %>
 	          </div>
 	        <% end %>
-	       </div>
+	      </div>
       <% end %>
       <%= will_paginate @programs, previous_label: "Prev", next_label: "Next", inner_window: 1, outer_window: 0 %>
 	  <%- else %>
