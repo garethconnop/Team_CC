@@ -24,7 +24,11 @@
  	
   <div class="comments">
     <h2 class="comment_count"><%= pluralize(@video.video_comments.count, "Comment") %></h2>
-    <%= render @video.video_comments %>
+    <%- if @video.video_comments.size > 0 %>
+      <%= render @video.video_comments %>
+    <%- else %>
+      <p class="no_content">Be the first to comment.</p>
+    <% end %>
     <h2 class="reply">Comment</h2>
     <%= render "video_comments/form" %>
   </div>

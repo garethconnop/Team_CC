@@ -35,7 +35,11 @@
 
     <div class="comments">
     	<h2 class="comment_count"><%= pluralize(@forum.forum_comments.count, "Reply") %></h2>
-      <%= render @forum.forum_comments %>
+      <%- if @forum.forum_comments.size > 0 %>
+        <%= render @forum.forum_comments %>
+      <%- else %>
+        <p class="no_content">Be the first to comment.</p>
+      <% end %>
     	<h2 class="reply">Reply</h2>
       <%= render "forum_comments/form" %>
     </div>
