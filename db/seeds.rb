@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+ForumCategory.create([{ name: 'Introductions' }, { name: 'Lifestyle' }, { name: 'Exercise' }, { name: 'Nutrition' }, { name: 'Mobility' }, { name: 'General' }])
+VideoCategory.create([{ name: 'Push'}, { name: 'Pull'}, { name: 'Legs'}, { name: 'Core'}, { name: 'Mobility'}])
