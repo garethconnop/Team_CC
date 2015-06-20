@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     resources :video_comments
   end
 
-  resources :programs
+  resources :programs do
+    resources :program_parts, path: "episode"
+  end
   
   get 'welcome/index'
   root 'welcome#index'

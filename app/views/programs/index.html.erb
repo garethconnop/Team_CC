@@ -20,9 +20,7 @@
             <h2><%= program.title %></h2>
 	          <p class="program_description"><%= program.description %></p>
 	          <p class="program_download_open">
-		          <%= link_to "Download", program.pdf.url, download: program.pdf.url, class: "pdf" %>
-							|
-							<%= link_to "Open", program.pdf.url, target: "_blank", class: "pdf" %>
+		          <%= link_to "View Program", program_path(program), class: "button button_highlight" %>
 						</p>
           </div>
 	        <%- if current_user.try(:admin?) %>
@@ -35,7 +33,7 @@
       <% end %>
       <%= will_paginate @programs, previous_label: "Prev", next_label: "Next", inner_window: 1, outer_window: 0 %>
 	  <%- else %>
-      <p class="no_content">There are no programs at the momment.</p>
+      <p class="no_content">There are no programs at the moment.</p>
 	  <% end %>
 	</div>
 </div>

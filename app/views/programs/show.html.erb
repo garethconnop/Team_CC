@@ -1,0 +1,38 @@
+<div id="banner" class="programs_banner">
+  <%- if current_user.try(:admin?) %>
+	  <div class="wrapper_skinny program_admin_headline">
+		  <h1><%= @program.title %> Episodes</h1>
+		  <%= link_to "New Episode", new_program_program_part_path(@program), class: "button button_highlight" %>					
+		</div>
+  <%- else %>
+    <div class="wrapper_skinny">
+      <h1><%= @program.title %> Episodes</h1>
+    </div>
+  <% end %>
+</div>
+
+<div id="programs">
+	<div class="program_wrapper">
+	  <%- if @program_parts.size > 0 %>
+      <% @program_parts.each do |program_part| %>
+			  <div class="program">
+			    <div class="program_info cf">
+			      <h2><%= program_part.title %></h2>
+			      <p class="program_description"><%= program_part.description %></p>
+			      <p class="program_download_open">
+						</p>
+			    </div>
+			    <%- if current_user.try(:admin?) %>
+			      <div class="authorised_links cf">
+			        <%= link_to "Edit", edit_program_program_part_path(program_part.program, program_part), class: "edit_link" %>
+			        <%= link_to "Delete", [program_part.program, program_part], method: :delete, data: { confirm: "Are you sure you want to delete this episode?"}, class: "delete_link" %>
+			      </div>
+			    <% end %>
+			  </div>
+			<% end %>
+			<%= will_paginate @program_parts, previous_label: "Prev", next_label: "Next", inner_window: 1, outer_window: 0 %>
+	  <%- else %>
+      <p class="no_content">There are no programs at the moment.</p>
+	  <% end %>
+	</div>
+</div>

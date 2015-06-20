@@ -1,0 +1,29 @@
+<%= form_for ([@program, @program_part]) do |f| %>
+  <% if @program_part.errors.any? %>
+    <h2><%= pluralize(@program_part.errors.count, "error") %> prevented this program part from saving:</h2>
+    <ul>
+  	  <% @program_part.errors.full_messages.each do |msg| %>
+  	    <li><%= msg %></li>
+  	  <% end %>
+    </ul>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pdf, "Program PDF" %><br>
+    <%= f.file_field :pdf %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description%><br>
+    <%= f.text_area :description%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create Episode", class: "button button_highlight button_block" %>
+  </div>
+<% end %>
