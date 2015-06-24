@@ -7,5 +7,16 @@ class Video < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   extend FriendlyId
-  friendly_id :title, use: :slugged
+  friendly_id :slug_candidates, use: :slugged
+
+  def slug_candidates
+    [
+      :title,
+      [:title, :video_category_id]
+    ]
+  end
+
+  def should_generate_new_friendly_id?
+	  title_changed?
+	end
 end

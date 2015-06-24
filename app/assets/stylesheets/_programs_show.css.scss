@@ -1,0 +1,122 @@
+#program_show {
+	padding-bottom: 4rem;
+	#program_show_wrapper {
+		padding: 4rem 0;
+    margin-bottom: 4rem;
+    background: $light;
+    .video {
+      width: 60%;
+      max-width: 960px;
+      float: left;
+      margin-right: 5%;
+      background: lighten($text, 25%);
+      border: 1rem solid lighten($text, 25%);
+      border-radius: .35rem;
+      box-sizing: border-box;
+      .video_inner_wrapper {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%; /* =540/960*100 */
+        iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    #program_content {
+      width: 35%;
+      float: left;
+      h1 {
+        margin: 0;
+        font-size: 1.75rem;
+        font-weight: 400;
+        color: $dark;
+      }
+      #description {
+        margin: 1rem 0 2rem;
+        font-weight: 300;
+        line-height: 1.6;
+      }
+      hr {
+        margin: 2.5rem 0;
+        width: 20%;
+        border: 2px solid lighten($text, 25%);
+      }
+      .edit_link, .delete_link {
+        color: $text;
+        &:hover {
+          color: darken($text, 20%);
+        }
+      }
+    }
+  }
+  #program_part_wrapper {
+    width: 90%;
+    max-width: 1152px;
+    margin: 0 auto;
+    #program_part_title, h2 {
+      color: $dark;
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+    #program_part_title {
+      padding: 0 0 1rem;
+      border-bottom: 1px solid #E9E9E9;
+    }
+  	.program_part {
+  		padding: 2rem 0;
+  		border-bottom: 1px solid #E9E9E9;
+      h2 {
+      	font-size: 1.25rem;
+      }
+      p {
+      	font-weight: 300;
+        margin-bottom: 0;
+      }
+      .program_part_description {
+        width: 75.5%;
+        float: left;
+        margin-right: 2.5%;
+      }
+      .program_part_download_open {
+        width: 22%;
+        float: left;
+        text-align: right;
+        a {
+          color: $highlight;
+          font-weight: 400;
+          text-decoration: none;
+          transition: color .2s ease-in-out;
+          &:hover {
+            color: darken($highlight, 10%);
+          }
+        }
+        .pdf_open {
+          margin-left: .75rem;
+          &:before {
+            content: "|";
+            padding-right: 1rem;
+            color: lighten($text, 20%); 
+          }
+        }
+      }
+      &:nth-child(1) {
+      	padding-top: 0;
+      }
+  	}
+    .no_content {
+      margin: 2rem 0 0;
+    }
+    #new_program_part_button_wrapper {
+      text-align: center;
+      a {
+        margin-top: 4rem;
+      }
+    }
+  }
+}

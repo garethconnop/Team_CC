@@ -1,12 +1,12 @@
 <div id="banner" class="programs_banner">
   <%- if current_user.try(:admin?) %>
 	  <div class="wrapper_skinny program_admin_headline">
-		  <h1>A collection of programs</h1>
+		  <h1>Programs to get you fitter, faster, stronger and leaner</h1>
 		  <%= link_to "New Program", new_program_path, class: "button button_highlight" %>
 		</div>
   <%- else %>
     <div class="wrapper_skinny">
-      <h1>A collection of programs</h1>
+      <h1>Programs to get you fitter, faster, stronger and leaner</h1>
     </div>
   <% end %>
 </div>
@@ -19,16 +19,8 @@
           <div class="program_info cf">
             <h2><%= program.title %></h2>
 	          <p class="program_description"><%= program.description %></p>
-	          <p class="program_download_open">
-		          <%= link_to "View Program", program_path(program), class: "button button_highlight" %>
-						</p>
+		        <%= link_to "View Program", program_path(program), class: "button button_highlight" %>
           </div>
-	        <%- if current_user.try(:admin?) %>
-	          <div class="authorised_links cf">
-	            <%= link_to "Edit", edit_program_path(program), class: "edit_link" %>
-	            <%= link_to "Delete", program_path(program), method: :delete, data: { confirm: "Are you sure you want to delete this program?"}, class: "delete_link" %>
-	          </div>
-	        <% end %>
 	      </div>
       <% end %>
       <%= will_paginate @programs, previous_label: "Prev", next_label: "Next", inner_window: 1, outer_window: 0 %>

@@ -30,34 +30,17 @@
         margin-bottom: 0;
       }
       .program_description {
-        width: 80%;
+        width: 70%;
         float: left;
+        margin-right: 5%;
       }
-      .program_download_open {
-        width: 20%;
-        float: left;
-        text-align: right;
-        color: lighten($text, 20%);
-      }
-      .pdf {
-      	color: $highlight;
-        font-weight: 400;
-      	text-decoration: none;
-      	transition: .2s ease-in-out;
-      	&:hover {
-      		color: darken($highlight, 10%);
-      	}
-      	span {
-      		margin-left: .25rem;
-      		font-size: .8rem;
-      	}
+      .button {
+        float: right;
+        margin-top: 1rem;
       }
       &:nth-child(1) {
       	padding-top: 0;
       }
-      &:nth-child(10) {
-	      margin-bottom: 4rem;
-			}
 		}
 	}
 }

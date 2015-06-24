@@ -7,6 +7,15 @@
 <div id="form">
   <div class="wrapper_skinny">
     <%= form_for ([@program, @program_part]) do |f| %>
+      <% if @program_part.errors.any? %>
+		    <h2><%= pluralize(@program_part.errors.count, "error") %> prevented this program part from saving:</h2>
+		    <ul>
+		  	  <% @program_part.errors.full_messages.each do |msg| %>
+		  	    <li><%= msg %></li>
+		  	  <% end %>
+		    </ul>
+		  <% end %>
+		  
 		  <div class="field">
 		    <%= f.label :title %><br>
         <%= f.text_field :title %>

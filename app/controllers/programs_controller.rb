@@ -5,7 +5,7 @@ class ProgramsController < ApplicationController
   before_action :authenticate_admin, only: [:new, :create, :edit, :update, :destroy]
 
 	def index
-    @programs = Program.all.order("created_at desc").paginate(page: params[:page], per_page: 1)
+    @programs = Program.all.order("created_at desc").paginate(page: params[:page], per_page: 10)
 	end
 
 	def new
@@ -50,19 +50,19 @@ class ProgramsController < ApplicationController
 	end
 
 	def program_params
-		params.require(:program).permit(:title, :description)
+		params.require(:program).permit(:title, :description, :slug, :video_id)
 	end
 
 	def find_program
 		if params[:id].nil?
       @program = current_program
 		else
-		  @program = Program.find(params[:id])
+		  @program = Program.friendly.find(params[:id])
 		end
 	end
 
 	def find_program_part
-		@program_parts = ProgramPart.where(program_id: @program).order("created_at desc").paginate(page: params[:page], per_page: 1)
+		@program_parts = ProgramPart.where(program_id: @program).order("created_at asc").paginate(page: params[:page], per_page: 10)
 	end
 		
 end

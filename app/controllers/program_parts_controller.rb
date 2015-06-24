@@ -1,6 +1,7 @@
 class ProgramPartsController < ApplicationController
   before_action :find_program
   before_action :find_program_part, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!
   before_action :authenticate_admin, only: [:new, :create, :edit, :update, :destroy]
 
 	def new
@@ -42,11 +43,11 @@ class ProgramPartsController < ApplicationController
 	end
 
 	def program_part_params
-		params.require(:program_part).permit(:title, :description)
+		params.require(:program_part).permit(:title, :description, :pdf)
 	end
 
 	def find_program
-		@program = Program.find(params[:program_id])
+		@program = Program.find_by_slug(params[:program_id])
 	end
 
 	def find_program_part

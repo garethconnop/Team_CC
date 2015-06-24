@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150619150243) do
+ActiveRecord::Schema.define(version: 20150623124022) do
 
   create_table "forum_categories", force: :cascade do |t|
     t.string   "name"
@@ -59,15 +59,6 @@ ActiveRecord::Schema.define(version: 20150619150243) do
     t.string   "title"
     t.text     "description"
     t.integer  "program_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "program_parts", ["program_id"], name: "index_program_parts_on_program_id"
-
-  create_table "programs", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.string   "pdf_file_name"
@@ -75,6 +66,19 @@ ActiveRecord::Schema.define(version: 20150619150243) do
     t.integer  "pdf_file_size"
     t.datetime "pdf_updated_at"
   end
+
+  add_index "program_parts", ["program_id"], name: "index_program_parts_on_program_id"
+
+  create_table "programs", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "slug"
+    t.string   "video_id"
+  end
+
+  add_index "programs", ["slug"], name: "index_programs_on_slug", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
